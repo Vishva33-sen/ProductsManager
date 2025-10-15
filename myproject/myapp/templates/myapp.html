@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyApp Page</title>  
+    <style>
+        .header {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .note {
+            font-size: 18px;
+            color: #333;
+            margin: 20px;
+            text-align: center;
+        }
+        .productDetails {
+            font-size: 16px;
+            color: #555;
+            margin: 20px;
+            text-align: center;
+        }
+        .adminButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 20 auto;
+            margin: 5px;
+        }
+        .adminButton a {
+            color: white;
+            text-decoration: none;
+        }
+        .adminButton:hover {
+            background-color: #51a155;
+        }
+        .buttonContainer {
+            text-align: center;
+            margin-top: 30px;
+            display: grid;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div class ="header">
+        <h1>Welcome to MyApp Page</h1>
+    </div>
+    <p class = "note">This is the MyApp section of the Django application.</p>
+    <div class = "productDetails">
+        <h2>Product Details</h2>
+        <h3>Type: {{ type }}</h3>
+        {% for products in product %}
+            <p>Name: {{ products.name }}</p>
+            <p>Price: ${{ products.price }}</p>
+            <p>Description: {{ products.description }}</p>
+        {% empty %}
+            <p>No products available.</p>
+        {% endfor %}
+    </div>
+    <div class = "buttonContainer">
+        <button class = "adminButton"><a href = "/types">back </a></button>
+    </div>
+</body>

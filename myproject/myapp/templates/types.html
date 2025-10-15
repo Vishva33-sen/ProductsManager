@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+    <style>
+        .buttons{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 20 auto;
+            margin: 5px;
+        }
+        .buttons:hover {
+            background-color: #51a155;
+        }
+        .buttonContainer {
+            text-align: center;
+            margin-top: 30px;
+            display: grid;
+            justify-content: space-evenly;
+        }
+        .buttonContainer a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Types Page</h1>
+    <h2>Available Types</h2>
+    <div class = "buttonContainer">
+        {% for t in types %}
+            <a href="{% url 'myapp' t %}">
+                <button class="buttons">{{t}}</button>
+            </a>
+        {%empty%}
+            <p>No types available.</p>
+        {% endfor %}
+    </div>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
